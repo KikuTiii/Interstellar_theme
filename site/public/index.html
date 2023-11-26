@@ -2,6 +2,266 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/slider.css">
+</head>
+
+<body>
+  <div class="banner">
+    <video autoplay loop muted plays-inline>
+      <source src="./assets/images/Interestellar.mp4" type="video/mp4">
+    </video>
+
+    <div class="navbar">
+      <img src="#" alt="" class="logo">
+      <ul>
+        <li><a href="">SOBRE O FILME</a></li>
+        <li><a href="">PERSONAGENS</a></li>
+        <li><a href="">Home</a></li>
+        <li><a href="login.html" class="btn-login"><button>LOGIN</button></a></li>
+      </ul>
+    </div>
+
+    <div class="conteudo">
+      <div>
+        <a href="cadastro.html"><button class="cadastro">CADASTRE-SE</button></a>
+      </div>
+    </div>
+  </div>
+
+  <section class="sinopse">
+    <!-- <h1>SINOPSE</h1> -->
+    <div class="foto">
+      <img src="./assets/images/_Interstellar_ advance movie poster, 2014_.jpeg" alt="">
+    </div>
+
+    <div class="principalRight">
+      <h1>SOBRE O FILME</h1>
+      <div class="trailer">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/mbbPSq63yuM?si=KZLlG3GYWPPYvcDO"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+
+      <div class="streaming">
+        <h2>STREAMING</h2>
+        <img src="./assets/images/youtube (1).png" alt="">
+        <img src="./assets/images/hbo (2).png" alt="">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- PERSONAGENS -->
+  <div class="div_pai">
+    <h1>PERSONAGENS PRINCIPAIS</h1>
+    <section class="fotos">
+
+      <!-- <button id="prevButton">Anterior</button> -->
+
+      <div class="galeria" id="imageCarousel">
+        <div class="img-box">
+          <button class="personagem" onclick="descricao()">Joseph Cooper</button>
+        </div>
+        <div class="img-box">
+          <button class="personagem">Amelia Brand</button>
+        </div>
+        <div class="img-box">
+          <button class="personagem">Murphy Cooper</button>
+        </div>
+        <div class="img-box">
+          <button class="personagem">T.A.R.S.</button>
+        </div>
+        <div class="img-box">
+          <button class="personagem">Romily</button>
+        </div>
+        <div class="img-box">
+          <button class="personagem">Professor Brand</button>
+        </div>
+        <div class="img-box">
+          <button class="personagem">Dr. Mann</button>
+        </div>
+        <div class="img-box">
+          <button class="personagem">Tom Cooper</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section id="tranding">
+    <div class="container">
+      <!-- <h3 class="text-center section-subheading">- popular Delivery -</h3> -->
+      <h1 class="text-center section-heading">Galeria de fotos</h1>
+    </div>
+    <div class="container">
+      <div class="swiper tranding-slider">
+        <div class="swiper-wrapper">
+          <!-- Slide-start -->
+          <div class="swiper-slide tranding-slide">
+            <div class="tranding-slide-img">
+              <img src="./assets/images/wallpaper1.jpeg" alt="Tranding">
+            </div>
+          </div>
+          <!-- Slide-end -->
+          <!-- Slide-start -->
+          <div class="swiper-slide tranding-slide">
+            <div class="tranding-slide-img">
+              <img src="./assets/images/wallpaper2.jpeg" alt="Tranding">
+            </div>
+          </div>
+          <!-- Slide-end -->
+          <!-- Slide-start -->
+          <div class="swiper-slide tranding-slide">
+            <div class="tranding-slide-img">
+              <img src="./assets/images/wallpaper3.jpeg" alt="Tranding">
+            </div>
+          </div>
+          <!-- Slide-end -->
+          <!-- Slide-start -->
+          <div class="swiper-slide tranding-slide">
+            <div class="tranding-slide-img">
+              <img src="./assets/images/wallpaper4.jpeg" alt="Tranding">
+            </div>
+          </div>
+          <!-- Slide-end -->
+          <!-- Slide-start -->
+          <div class="swiper-slide tranding-slide">
+            <div class="tranding-slide-img">
+              <img src="./assets/images/wallpaper5.jpeg" alt="Tranding">
+            </div>
+          </div>
+          <!-- Slide-end -->
+          <!-- Slide-start -->
+          <div class="swiper-slide tranding-slide">
+            <div class="tranding-slide-img">
+              <img src="./assets/images/wallpaper6.jpeg" alt="Tranding">
+            </div>
+          </div>
+          <!-- Slide-end -->
+          <!-- Slide-start -->
+          <div class="swiper-slide tranding-slide">
+            <div class="tranding-slide-img">
+              <img src="./assets/images/wallpaper7.jpeg" alt="Tranding">
+            </div>
+          </div>
+          <!-- Slide-end -->
+        </div>
+
+        <div class="tranding-slider-control">
+          <div class="swiper-button-prev slider-arrow">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+          </div>
+          <div class="swiper-button-next slider-arrow">
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="proposito">
+    <h1 class="proposito_titulo">Nosso propósito</h1>
+    <h2>Visamos trazer a melhor solução possível para os datacenters de forma sustentavel!</h2>
+    <section class="proposito_cardbox">
+      <div class="proposito_card">
+        <img class="proposito_card_vetor" src="./assets/img/visao.png" alt="">
+        <h2>visao</h2>
+        <p class="proposito_visao">
+          Queremos criar uma comunidade online para fãs de Interstellar se conectarem e compartilharem sua paixão pelo
+          filme.</p>
+      </div>
+      <div class="proposito_card">
+        <img class="proposito_card_vetor" src="./assets/img/missao.png">
+        <h2>Missao</h2>
+        <p id="proposito_missao">
+          Nossa missão é levar os espectadores a uma jornada épica explorando os mistérios do universo através do
+          cinema.
+        </p>
+      </div>
+      <div class="proposito_card">
+        <img class="proposito_card_vetor" src="./assets/img/values.png" alt="">
+        <h2>Valores</h2>
+        <p class="proposito_valores">
+          Inovação
+          <br>Comunidade
+          <br>Inspiração
+          <br>Exploração
+          <br>Compromisso
+        </p>
+      </div>
+    </section>
+  </section>
+
+  <footer>
+    <div class="footer_cima" id="divFooterCima">
+      <section class="footer_cima01">
+        <h2 class="footer_titulo">Interestellar Theme</h2>
+        <div>
+          Telefone: +55 11 94512-4587
+          <br>
+          Email: matheus.ksousa@sptech.school
+        </div>
+      </section>
+      <section class="footer_cima02">
+        <h3 class="footer_titulo02">Links Uteis</h3>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#divSobreNos">Sobre o FIlme</a></li>
+          <li><a href="#historico">Galeria de fotos</a></li>
+          <li><a href="#divCalculadora">Quiz</a></li>
+        </ul>
+      </section>
+      <div class="footer_cima03">
+        <h3 class="footer_titulo03">Localização</h3>
+        <p>
+          Rua Haddock Lobo, <br>
+          595 - Cerqueira <br>
+          César, São Paulo - <br>
+          SP, 01414-001
+        </p>
+      </div>
+    </div>
+    <hr class="footer_linha">
+    </hr>
+    <div class="footer_baixo">
+      <p class="footer_copyright">© Interestellar. All Rights Reserved</p>
+      <ul class="footer_medias">
+        <div class="footer_circle">
+          <li><a href="#"><img class="footer_social" src="./assets/img/instagram.png" alt=""></li></a>
+        </div>
+        <div class="footer_circle">
+          <li><a href="https://www.linkedin.com/in/matheuskikuti-s-37a8381b5/"><img class="footer_social"
+                src="./assets/img/linkedin.png" alt=""></li></a>
+        </div>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+
+</html>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+<script src="./js/slider.js"></script>
+<!-- <script src="./js/index.js"></script> -->
+<script src="server.js"></script>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +273,9 @@
     <link rel="icon" href="./assets/icon/favicon2.ico">
     <link rel="stylesheet" href="./css/estilo.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <!-- <link
+     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet"> -->
+        rel="stylesheet"> 
 </head>
 
 <body>
@@ -82,4 +342,4 @@
     </div>
   </body>
 
-</html>
+</html> -->

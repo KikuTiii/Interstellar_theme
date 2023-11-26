@@ -1,4 +1,126 @@
 <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+    <title>login</title>
+</head>
+
+<body>
+
+    <div id="div-fundo">
+        <div id="fundo-esquerdo">
+            <div id="div-fundo-roxo"></div>
+        </div>
+        <div id="fundo-direito">
+            <div id="div-fundo-branco">
+                <div id="div-mensagem">
+                    <h2>Bem vindo de volta</h2>
+                </div>
+                <div id="div-sessao-login">
+                    <div id="div-logo-texto">
+                        <img id="logo" src="../assets/img/Black Hole.jpeg" alt="logo projeto individual" />
+                        <h2>Faça seu login</h2>
+                    </div>
+
+                    <form id="formulario-login">
+                        <label htmlFor="text">Email</label><br />
+                        <input type="text" id="emailFormulario" class="estiloform"> <br /> <br /> <br />
+                        <label htmlFor="password">Senha</label> <br />
+                        <input type="password" id="senhaFormulario" class="estiloform" /> <br />
+
+                        <div class="logins">
+                            <a href="/auth/github"><img src="../assets/img/code.png" alt=""><span>GitHub</span></a>
+                        </div>
+
+                    </form>
+                    <button onclick="tratativa()" id="botao-acessar">ACESSAR</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script src="server.js"></script>
+
+<script>
+
+    function tratativa() {
+        // aguardar();
+
+        var emailVar = emailFormulario.value;
+        var senhaVar = senhaFormulario.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            finalizarAguardar();
+            return false;
+        }
+        else {
+            setInterval(sumirMensagem, 5000)
+        }
+
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+
+                    setTimeout(function () {
+                        window.location = "quiz.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    // finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+</script>
+
+<!-- <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -20,7 +142,7 @@
 
 <body>
 
-    <!--Header-->
+    Header
 
     <div class="header">
         <div class="container">
@@ -74,14 +196,14 @@
         </div>
     </div>
 
-    <!--footer inicio-->
+    footer inicio
     <div class="footer">
         <div class="container">
             <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
             <span class="version">v1.0.0</span>
         </div>
     </div>
-    <!--footer fim-->
+    footer fim
 
 </body>
 
@@ -159,4 +281,4 @@
         cardErro.style.display = "none"
     }
 
-</script>
+</script> -->

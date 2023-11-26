@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    font-family: 'Poppins';
+    border: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+.div-fundo {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    background-image: url(../assets/img/NASA\ Scientific\ Visualization\ Studio\ _\ Hubble\ Ultra\ Deep\ Field.jpeg);
+    background-size: cover;
+}
+
+.div-principal-cadastro {
+    width: 55%;
+    height: 85%;
+    background-color: #f9f9f9;
+    border-top-left-radius: 70px;
+    border-bottom-right-radius: 70px;
+    margin: auto;
+    box-shadow: 1px 1px 15px 3px #666;
+}
+
+#div-logo-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+    margin-top: 55px;
+}
+
+#div-logo-texto h1 {
+    font-size: 35px;
+    color: #000;
+    font-weight: normal;
+}
+
+#div-logo-texto h3 {
+    font-size: 25px;
+    font-weight: lighter;
+}
+
+#div-logo-texto img {
+    width: 70px;
+}
+
+.div-sessao-cadastro {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 2.5%;
+}
+
+.formulario-cadastro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.inputs-cadastro {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.inputs-cadastro label {
+    font-size: 20px;
+}
+
+.estilo-form {
+    border: 1px solid #050505;
+    background-color: #f9f9f9;
+    border-radius: 7px;
+    outline: none;
+    width: 200px;
+    padding: 5px;
+}
+
+#btn-continuar {
+    width: 45%;
+    height: auto;
+    margin: auto;
+}
+
+button {
+    background-color: #f9f9f9;
+    border-radius: 0 0 50px 0;
+    border: none;
+}
+
+#btn-continuar {
+    width: 50%;
+    padding: 1%;
+    border: 1px solid #f7f7f7;
+    margin-top: 5%;
+    border-radius: 50px;
+    color: #fff;
+    background-color: #000000;
+    outline: none;
+    font-size: 20px;
+}
+
+#btn-continuar:hover {
+    background-color: #f9f9f9;
+    color: #000000;
+    border: 1px solid #000000;
+    transition: 0.7s;
+    cursor: pointer;
+    outline: none;
+}

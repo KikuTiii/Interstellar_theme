@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="./css/quiz.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+</head>
+
+<body>
+
+    <main class="main">
+        <section class="home">
+            <div class="home-content">
+                <h1>Interestellar Quiz</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni harum vero repudiandae quod et
+                    dolorem
+                    iure. Consequatur odio vitae nostrum, dignissimos similique, explicabo numquam repellendus beatae,
+                    hic
+                    inventore ullam voluptas.</p>
+                <button class="start-quiz">START QUIZ</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Caixa de Informações -->
+    <div class="info_box">
+        <div class="info-title"><span>Regras deste Quiz</span></div>
+        <div class="info-list">
+            <div class="info">1. Você terá apenas <span>10 segundos</span> para cada pergunta.</div>
+            <div class="info">2. Uma vez que você selecionar sua resposta, não poderá desfazê-la.</div>
+            <div class="info">3. Você receberá recompensas com base em suas respostas corretas.</div>
+        </div>
+        <div class="buttons">
+            <button class="restart">Continuar</button>
+        </div>
+    </div>
+
+    <!-- Caixa do Quiz -->
+    <div class="quiz_box">
+        <header>
+            <div class="title">QUIZ INTERESTELAR</div>
+            <div class="timer">
+                <div class="time_left_txt">Tempo Restante</div>
+                <div class="timer_sec">10</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+
+        <section>
+            <div class="que_text">
+                <!-- Aqui inseri a pergunta via JavaScript -->
+            </div>
+            <div class="option_list">
+                <!-- Aqui inseri as opções via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Rodapé da Caixa do Quiz -->
+        <footer>
+            <div class="total_que">
+                <!-- Aqui inseri o número de contagem de perguntas via JavaScript -->
+            </div>
+            <button class="next_btn">Próximo</button>
+        </footer>
+    </div>
+
+    <!-- Caixa de Resultados -->
+    <div class="result_box">
+        <div class="complete_text">Você concluiu o Quiz!</div>
+        <div class="percentage-container">
+            <div class="circular-progress">
+                <span class="progress-value">0%</span>
+            </div>
+            <span class="score-text">Sua pontuação foi 0 de 10</span>
+        </div>
+            <div class="buttons">
+                <button class="restart">Reiniciar</button>
+                <button onclick="statsQuiz()" class="statusBtn">Status</button>
+                <button class="quit">Sair</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard">
+        <h1>Dashboard</h1>
+
+        <div class="div_conteudo">
+
+			<div class="graficos">
+				
+				<div class="div_graficos_main">
+					<canvas id="mainGraficoUmidadeMedia"></canvas>
+					<canvas id="mainGraficoUmidadeMediaMes"></canvas>
+				</div>
+				<div class="div_graficos_main">
+					<canvas id="mainGraficoTemperaturaMedia"></canvas>
+					<canvas id="mainGraficoTemperaturaMediaMes"></canvas>
+				</div>
+			</div>
+
+			<section class="squares_circles">
+				<div class="percentage-container">
+					<div class="circular-progress">
+						<span class="progress-value">0%</span>
+					</div>
+					<span class="score-text">Sua pontuação foi 0 de 10</span>
+				</div>
+		
+				<div class="percentage-container">
+					<div class="circular-progress">
+						<span class="progress-value">0%</span>
+					</div>
+					<span class="score-text">Sua pontuação foi 0 de 10</span>
+				</div>
+			</section>
+
+		</div>
+
+        
+
+
+    </div>
+
+    <!-- Dentro deste arquivo JavaScript, inseri apenas Perguntas e Opções -->
+    <script src="./js/questoes.js"></script>
+
+    <!-- Dentro deste arquivo JavaScript, codifiquei todos os Códigos do Quiz -->
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>
+
+<script>
+
+const xHorario = ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
+	const xMes = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho","Julho", "Agosto", "setembro", "outubro", "Novembro", "Dezembro"];
+	const yUmidade = [50, 45, 46, 42, 43, 45];
+	const yUmidadeMes = [50, 45, 46, 42, 43, 45,50, 45, 46, 42, 43, 45];
+	const yTemperatura = [21, 19, 20, 20, 19, 19];
+	const yTemperaturaMes = [21, 19, 20, 19, 19, 19,21, 19, 20, 19, 19, 19];
+
+	// Sensores Main
+
+	new Chart("mainGraficoUmidadeMedia", {
+		type: "line",
+		data: {
+			labels: xHorario,
+			datasets: [{
+				label: 'Umidade Média',
+				fill: false,
+				lineTension: 0,
+				backgroundColor: "#4761f4",
+				borderColor: "#4761f4",
+				data: yUmidade,
+			},]
+		},
+		options: {
+			legend: {
+				display: true,
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						min: 20,
+						max: 60
+					}
+				}],
+			}
+		}
+	});
+	const BarColors = ["Red"];
+
+	new Chart("mainGraficoUmidadeMediaMes", {
+		type: "bar",
+		data: {
+			labels: xMes,
+			datasets: [{
+				label: 'Umidade Média Mensal',
+				fill: false,
+				lineTension: 0,
+				backgroundColor: "#4761f4",
+				borderColor: "#4761f4",
+				data: yUmidadeMes
+			},]
+		},
+		options: {
+			legend: {
+				display: true,
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						min: 20,
+						max: 70
+					}
+				}],
+			}
+		}
+	});
+	new Chart("mainGraficoTemperaturaMedia", {
+		type: "line",
+		data: {
+			labels: xHorario,
+			datasets: [{
+				label: 'Temperatura Média',
+				fill: false,
+				lineTension: 0,
+				backgroundColor: "#d73232",
+				borderColor: "#d73232",
+				data: yTemperatura,
+			},]
+		},
+		options: {
+			legend: {
+				display: true,
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						min: 15,
+						max: 40
+					}
+				}],
+			}
+		}
+	});
+	new Chart("mainGraficoTemperaturaMediaMes", {
+		type: "bar",
+		data: {
+			labels: xMes,
+			datasets: [{
+				label: 'Temperatura Média Mensal',
+				fill: false,
+				lineTension: 0,
+				backgroundColor: "#d73232",
+				borderColor: "#d73232",
+				data: yTemperaturaMes
+			},]
+		},
+		options: {
+			legend: {
+				display: true,
+			},
+			scales: {
+				yAxes: [{
+					ticks: {
+						min: 15,
+						max: 40
+					}
+				}],
+			}
+		}
+	});
+    
+</script>

@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: Poppins;
+}
+
+body{
+    overflow-y: hidden;
+}
+
+#div-fundo {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#fundo-esquerdo {
+    width: 45%;
+    background-color: #F9F9F9;
+}
+
+#fundo-direito {
+    width: 55%;
+    background-image: url(../assets/img/Interstellar\ wallpaper\ .jpeg);
+    background-size: cover;
+}
+
+#div-fundo-roxo {
+    width: 100%;
+    height: 103vh;
+    border-bottom-right-radius: 90px;
+    background-color: #7B21C1;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    background-image: url(../assets/img/Interstellar\ wallpaper\ .jpeg);
+    background-size: cover;
+    background-position: center;
+}
+
+#vetor-database {
+    width: 80%;
+    animation: infinite;
+    animation-direction: normal;
+}
+
+#div-fundo-branco {
+    width: 100%;
+    height: 100vh;
+    background-color: #F9F9F9;
+    border-top-left-radius: 115px;
+    padding-top: 3%;
+}
+
+#div-mensagem {
+    width: 150px;
+    height: 30px;
+    border-radius: 10px 10px 10px 0;
+    color: #fff;
+    font-weight: bold;
+    font-size: 10px;
+    font-family: Poppins;
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 0%;
+    background-image: url(../assets/img/Interstellar\ wallpaper\ .jpeg);
+    background-size: cover;
+}
+
+#div-mensagem h2 {
+    text-align: center;
+}
+
+#div-sessao-login {
+    background-color: #000000;
+    width: 50%;
+    height: 430px;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    margin-top: 3%;
+    box-shadow: 1px 1px 30px 3px #666;
+    padding-bottom: 5%;
+    padding-top: 2%;
+}
+
+#div-logo_texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#logo{
+    width: 100px;
+    height: auto;
+}
+
+#div-logo-texto h2 {
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-size: 15px;
+    text-align: center;
+}
+
+#formulario-login {
+    width: 60%;
+    flex-direction: column;
+    margin: 2%;
+}
+
+.logins{
+    margin-left: 20px;
+    display: flex;
+    width: 150px;
+    justify-content: space-around;
+    border-radius: 10px;
+    /* border: white solid 1px; */
+    padding: 5px;
+}
+
+.logins img{
+    cursor: pointer;
+    width: 40px;
+}
+
+.logins a{
+    display: flex;
+    text-decoration: none;
+}
+
+.logins a span{
+    margin-top: 10px;
+    margin-left: 5px;
+    color: white;
+    list-style: none;
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+    color: inherit; /* ou a cor desejada */
+}
+
+.estiloform {
+    border-bottom: 2px solid #fff;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    outline: none;
+}
+
+#botao-acessar {
+    width: 60%;
+    height: 40px;
+    border: 1px solid #fff;
+    margin-top: 35px;
+    border-radius: 5px;
+    color: #454545;
+    background-color: #EFEFF5;
+    outline: none;
+    cursor: pointer;
+}
+
+#botao-acessar:hover {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    background-image: url(../assets/fundo-btn-onspt.svg);
+    transition: 0.5s;
+    outline: none;
+}
