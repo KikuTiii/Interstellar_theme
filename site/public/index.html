@@ -8,7 +8,6 @@
 
   <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
   <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="./css/slider.css">
 </head>
 
 <body>
@@ -18,11 +17,11 @@
     </video>
 
     <div class="navbar">
-      <img src="#" alt="" class="logo">
+      <img src="./assets/img/black-hole.png" alt="" class="logo">
       <ul>
-        <li><a href="">SOBRE O FILME</a></li>
-        <li><a href="">PERSONAGENS</a></li>
-        <li><a href="">Home</a></li>
+        <li><a href="#sobreFilme">SOBRE O FILME</a></li>
+        <li><a href="#personagens">PERSONAGENS</a></li>
+        <li><a href="#GaleriaFotos">FOTOS</a></li>
         <li><a href="login.html" class="btn-login"><button>LOGIN</button></a></li>
       </ul>
     </div>
@@ -34,7 +33,7 @@
     </div>
   </div>
 
-  <section class="sinopse">
+  <section class="sinopse" id="sobreFilme">
     <!-- <h1>SINOPSE</h1> -->
     <div class="foto">
       <img src="./assets/images/_Interstellar_ advance movie poster, 2014_.jpeg" alt="">
@@ -59,7 +58,7 @@
   </section>
 
   <!-- PERSONAGENS -->
-  <div class="div_pai">
+  <div class="div_pai" id="personagens">
     <h1>PERSONAGENS PRINCIPAIS</h1>
     <section class="fotos">
 
@@ -95,7 +94,7 @@
   </div>
 
   <section id="tranding">
-    <div class="container">
+    <div class="container" id="GaleriaFotos">
       <!-- <h3 class="text-center section-subheading">- popular Delivery -</h3> -->
       <h1 class="text-center section-heading">Galeria de fotos</h1>
     </div>
@@ -168,20 +167,19 @@
   </section>
 
   <section class="proposito">
-    <h1 class="proposito_titulo">Nosso propósito</h1>
-    <h2>Visamos trazer a melhor solução possível para os datacenters de forma sustentavel!</h2>
+    <h1 class="proposito_titulo">Propósito</h1>
     <section class="proposito_cardbox">
       <div class="proposito_card">
         <img class="proposito_card_vetor" src="./assets/img/visao.png" alt="">
-        <h2>visao</h2>
+        <h2>Visão</h2>
         <p class="proposito_visao">
           Queremos criar uma comunidade online para fãs de Interstellar se conectarem e compartilharem sua paixão pelo
           filme.</p>
       </div>
       <div class="proposito_card">
         <img class="proposito_card_vetor" src="./assets/img/missao.png">
-        <h2>Missao</h2>
-        <p id="proposito_missao">
+        <h2>Missão</h2>
+        <p class="proposito_missao">
           Nossa missão é levar os espectadores a uma jornada épica explorando os mistérios do universo através do
           cinema.
         </p>
@@ -214,9 +212,9 @@
         <h3 class="footer_titulo02">Links Uteis</h3>
         <ul>
           <li><a href="#">Home</a></li>
-          <li><a href="#divSobreNos">Sobre o FIlme</a></li>
-          <li><a href="#historico">Galeria de fotos</a></li>
-          <li><a href="#divCalculadora">Quiz</a></li>
+          <li><a href="#sobreFilme">Sobre o FIlme</a></li>
+          <li><a href="#GaleriaFotos">Galeria de fotos</a></li>
+          <li><a href="./quiz.html">Quiz</a></li>
         </ul>
       </section>
       <div class="footer_cima03">
@@ -235,7 +233,7 @@
       <p class="footer_copyright">© Interestellar. All Rights Reserved</p>
       <ul class="footer_medias">
         <div class="footer_circle">
-          <li><a href="#"><img class="footer_social" src="./assets/img/instagram.png" alt=""></li></a>
+          <li><a href="https://www.instagram.com/matheuskikuti/"><img class="footer_social" src="./assets/img/instagram.png" alt=""></li></a>
         </div>
         <div class="footer_circle">
           <li><a href="https://www.linkedin.com/in/matheuskikuti-s-37a8381b5/"><img class="footer_social"
@@ -253,93 +251,29 @@
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
-<script src="./js/slider.js"></script>
-<!-- <script src="./js/index.js"></script> -->
-<script src="server.js"></script>
+<!-- <script src="/web-data-viz/server.js"></script> -->
 
+<script>
+  var TrandingSlider = new Swiper('.tranding-slider', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    loop: true,
+    slidesPerView: 'auto',
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 100,
+      modifier: 2.5,
+    },
+    pagination: { 
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
+  });
+</script>
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>AquaTech | Página Inicial</title>
-
-    <script src="./js/sessao.js"></script>
-
-    <link rel="icon" href="./assets/icon/favicon2.ico">
-    <link rel="stylesheet" href="./css/estilo.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-     <link
-        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet"> 
-</head>
-
-<body>
-    <div class="header">
-      <div class="container">
-        <h1 class="titulo">AquaTech</h1>
-        <ul class="navbar">
-          <li class="agora">
-            <a href="#">Inicial</a>
-          </li>
-          <li>
-            <a href="simulador.html">Simulador</a>
-          </li>
-          <li>|</li>
-          <li>
-            <a href="login.html">Login</a>
-          </li>
-          <li>
-            <a href="cadastro.html">Cadastro</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  
-    <div class="banner">
-      <div class="container">
-        <p>Preservando <span>hoje</span> para existirem <span>amanhã</span>.</p>
-      </div>
-    </div>
-  
-    <div class="social">
-      <div class="container">
-        <div class="boxes">
-          <div class="box">
-            <img src="assets/imgs/planet-earth_color.png">
-            <h4>Missão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/lightbulb_color.png">
-            <h4>Visão</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-          <div class="box">
-            <img src="assets/imgs/growth_color.png">
-            <h4>Valores</h4>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et, quas cupiditate asperiores provident magnam
-              vitae illum iusto fugiat atque deleniti nulla sed iure suscipit, laborum, aliquid accusantium cum dicta
-              minima.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <div class="footer">
-      <div class="container">
-        <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023</h4>
-        <span class="version">v1.0.0</span>
-      </div>
-    </div>
-  </body>
-
-</html> -->
