@@ -18,11 +18,7 @@
         <section class="home">
             <div class="home-content">
                 <h1>Interestellar Quiz</h1>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni harum vero repudiandae quod et
-                    dolorem
-                    iure. Consequatur odio vitae nostrum, dignissimos similique, explicabo numquam repellendus beatae,
-                    hic
-                    inventore ullam voluptas.</p>
+                <p>O quiz sobre Interstellar desafia os participantes a testar seus conhecimentos sobre o épico de ficção científica dirigido por Christopher Nolan. Explore perguntas sobre a trama, personagens e curiosidades, e veja se você é um verdadeiro explorador espacial! 🚀🌌</p>
                 <button class="start-quiz">START QUIZ</button>
             </div>
         </section>
@@ -82,7 +78,7 @@
             <div class="buttons">
                 <button class="restart">Reiniciar</button>
                 <button onclick="statsQuiz()" class="statusBtn">Status</button>
-                <button class="quit">Sair</button>
+                <button onclick="fechar()" class="quit">Sair</button>
             </div>
         </div>
     </div>
@@ -139,124 +135,7 @@
 
 <script>
 
-const xHorario = ["12:00", "13:00", "14:00", "15:00", "16:00", "17:00"];
-	const xMes = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho","Julho", "Agosto", "setembro", "outubro", "Novembro", "Dezembro"];
-	const yUmidade = [50, 45, 46, 42, 43, 45];
-	const yUmidadeMes = [50, 45, 46, 42, 43, 45,50, 45, 46, 42, 43, 45];
-	const yTemperatura = [21, 19, 20, 20, 19, 19];
-	const yTemperaturaMes = [21, 19, 20, 19, 19, 19,21, 19, 20, 19, 19, 19];
-
-	// Sensores Main
-
-	new Chart("mainGraficoUmidadeMedia", {
-		type: "line",
-		data: {
-			labels: xHorario,
-			datasets: [{
-				label: 'Umidade Média',
-				fill: false,
-				lineTension: 0,
-				backgroundColor: "#4761f4",
-				borderColor: "#4761f4",
-				data: yUmidade,
-			},]
-		},
-		options: {
-			legend: {
-				display: true,
-			},
-			scales: {
-				yAxes: [{
-					ticks: {
-						min: 20,
-						max: 60
-					}
-				}],
-			}
-		}
-	});
-	const BarColors = ["Red"];
-
-	new Chart("mainGraficoUmidadeMediaMes", {
-		type: "bar",
-		data: {
-			labels: xMes,
-			datasets: [{
-				label: 'Umidade Média Mensal',
-				fill: false,
-				lineTension: 0,
-				backgroundColor: "#4761f4",
-				borderColor: "#4761f4",
-				data: yUmidadeMes
-			},]
-		},
-		options: {
-			legend: {
-				display: true,
-			},
-			scales: {
-				yAxes: [{
-					ticks: {
-						min: 20,
-						max: 70
-					}
-				}],
-			}
-		}
-	});
-	new Chart("mainGraficoTemperaturaMedia", {
-		type: "line",
-		data: {
-			labels: xHorario,
-			datasets: [{
-				label: 'Temperatura Média',
-				fill: false,
-				lineTension: 0,
-				backgroundColor: "#d73232",
-				borderColor: "#d73232",
-				data: yTemperatura,
-			},]
-		},
-		options: {
-			legend: {
-				display: true,
-			},
-			scales: {
-				yAxes: [{
-					ticks: {
-						min: 15,
-						max: 40
-					}
-				}],
-			}
-		}
-	});
-	new Chart("mainGraficoTemperaturaMediaMes", {
-		type: "bar",
-		data: {
-			labels: xMes,
-			datasets: [{
-				label: 'Temperatura Média Mensal',
-				fill: false,
-				lineTension: 0,
-				backgroundColor: "#d73232",
-				borderColor: "#d73232",
-				data: yTemperaturaMes
-			},]
-		},
-		options: {
-			legend: {
-				display: true,
-			},
-			scales: {
-				yAxes: [{
-					ticks: {
-						min: 15,
-						max: 40
-					}
-				}],
-			}
-		}
-	});
-    
+	function fechar(){
+		window.location = 'quiz.html'
+	}
 </script>
