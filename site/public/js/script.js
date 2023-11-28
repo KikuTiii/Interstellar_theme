@@ -71,17 +71,14 @@ restart_quiz.onclick = () => {
     timeText.textContent = "Tempo Restante"; // Altera o texto de timeText para Tempo Restante
     next_btn.classList.remove("show"); // Esconde o botão próximo
 
-    totalTime += 10 - timeValue; // Adiciona o tempo gasto nesta pergunta ao tempo total
-    questionCount++; // Incrementa o número de perguntas respondidas
+    // Reinicia a contagem de tentativas apenas quando for a primeira tentativa
+    if (questionCount > 0) {
+        userErrors = [];
+        console.log("Número de tentativas: 0");
 
-    // Calcula o tempo médio por pergunta
-    const averageTime = totalTime / questionCount;
-    tempo_medio.innerHTML = `Tempo Médio por Pergunta:  + ${averageTime.toFixed(2)} +  segundos`;
-}
-
-// Se o botão QuitQuiz for clicado
-quit_quiz.onclick = () => {
-    window.location.reload(); // Recarrega a janela atual
+        // Adiciona esta linha para exibir a quantidade de erros após reiniciar
+        console.log("Quantidade de erros (após reiniciar): " + (userErrors.length - 1));
+    }
 }
 
 const next_btn = document.querySelector("footer .next_btn");
@@ -106,7 +103,7 @@ next_btn.onclick = () => {
 
         // Calcula o tempo médio por pergunta
         const averageTime = totalTime / questionCount;
-        tempo_medio.innerHTML = `Tempo Médio por Pergunta:  + ${averageTime.toFixed(2)} +  segundos`;
+        // tempo_medio.innerHTML = `Tempo Médio por Pergunta:  + ${averageTime.toFixed(2)} +  segundos`;
 
     } else {
         clearInterval(counter); // Limpa o contador
@@ -157,13 +154,14 @@ let easyQuestionsCorrect = [];
 let hardQuestionsCorrect = [];
 
 // Se o usuário clicou em uma opção
-// Se o usuário clicou em uma opção
 function optionSelected(answer) {
     clearInterval(counter); // Limpa o contador
     clearInterval(counterLine); // Limpa o contador de linha
     let userAns = answer.textContent; // Obtém a opção selecionada pelo usuário
     let correcAns = questions[que_count].answer; // Obtém a resposta correta do array
     const allOptions = option_list.children.length; // Obtém todos os itens de opção
+
+    let isCorrect = false;
 
     if (userAns == correcAns) { // Se a opção selecionada pelo usuário for igual à resposta correta do array
         userScore += 1; // Atualiza o valor da pontuação com 1
@@ -181,31 +179,40 @@ function optionSelected(answer) {
             hardQuestionsCorrect.push(questions[que_count]);
         }
 
+        isCorrect = true;
     } else {
-        userErrors.push({ question: que_count, selectedOption: userAns, correctOption: correcAns }); // Armazena a opção incorreta
+        userErrors.push({
+            question: que_count,
+            selectedOption: userAns,
+            correctOption: correcAns,
+            attempt: userErrors.length + 1, // Número da tentativa
+            isCorrect: false
+        }); // Armazena a opção incorreta
         answer.classList.add("incorrect"); // Adiciona a cor vermelha à opção selecionada incorreta
         answer.insertAdjacentHTML("beforeend", crossIconTag); // Adiciona o ícone de cruz à opção selecionada incorreta
         console.log("Resposta Errada");
-        console.log(userErrors)
-
-        for (let i = 0; i < allOptions; i++) {
-            option_list.children[i].classList.add("disabled");
-            if (option_list.children[i].textContent == correcAns) { // Se houver uma opção que corresponda à resposta do array
-                option_list.children[i].setAttribute("class", "option correct"); // Adiciona a cor verde à opção correspondente
-                option_list.children[i].insertAdjacentHTML("beforeend", tickIconTag); // Adiciona o ícone de marca à opção correspondente
-                console.log("Resposta correta automaticamente selecionada.");
-            }
-        }
-        next_btn.classList.add("show");
-        console.log("Quantidade de erros: " + userErrors.length);
+        console.log("Número de tentativas: " + userErrors.length);
+        console.log(userErrors);
     }
+
+    console.log("Número de acertos: " + userScore);
 
     for (let i = 0; i < allOptions; i++) {
         option_list.children[i].classList.add("disabled"); // Uma vez que o usuário seleciona uma opção, desabilita todas as opções
     }
 
     next_btn.classList.add("show"); // Mostra o botão próximo se o usuário selecionou alguma opção
+
+    if (isCorrect) {
+        totalTime += 10 - timeValue; // Adiciona o tempo gasto nesta pergunta ao tempo total
+        questionCount++; // Incrementa o número de perguntas respondidas
+
+        // Calcula o tempo médio por pergunta
+        const averageTime = totalTime / questionCount;
+        // tempo_medio.innerHTML = `Tempo Médio por Pergunta: ${averageTime.toFixed(2)} segundos`;
+    }
 }
+
 
 function showResult() {
     info_box.classList.remove("activeInfo"); // Esconde a caixa de informações
@@ -230,7 +237,7 @@ function showResult() {
     let progressEndValue = (userScore / questions.length) * 100
     let speed = 20
 
-    console.log("Tempo Total: " + elapsedTime / 1000 + " segundos");
+    // console.log("Tempo Total: " + elapsedTime / 1000 + " segundos");
 
     let progress = setInterval(() => {
         progressStartValue++
