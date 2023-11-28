@@ -1,4 +1,5 @@
 const express = require ("express")
+const usuarioController = require("../controllers/usuarioController");
 const passport = require ("passport")
 const router = express.Router()
 
@@ -24,9 +25,8 @@ router.get(
     '/github/callback',
     passport.authenticate('github', { failureRedirect: '/login' }),
     function(req, res) {
-        console.log('Autenticação bem-sucedida:', req.user);
-        res.redirect('/quiz.html');
-    }
-);
+        console.log('Autenticação bem-sucedida:', req.user.username);
+        usuarioController.autenticarGithub(req, res)
+    })
 
 module.exports = router

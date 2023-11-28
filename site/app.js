@@ -49,11 +49,7 @@ passport.serializeUser(function(user, cb) {
 });
 
 passport.deserializeUser(function(id, cb) {
-    // Aqui, você pode recuperar o usuário do banco de dados usando o ID, se necessário.
-    // Por exemplo, se estiver usando um banco de dados MongoDB:
-    // User.findById(id, function(err, user) {
-    //     cb(err, user);
-    // });
+
     cb(null, id);
 });
 passport.use(

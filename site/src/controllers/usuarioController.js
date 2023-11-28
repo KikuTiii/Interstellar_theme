@@ -1,5 +1,6 @@
 var usuarioModel = require("../models/usuarioModel");
-// var aquarioModel = require("../models/aquarioModel");
+const express = require('express');
+
 
 function autenticar(req, res) {
     var email = req.body.emailServer;
@@ -19,10 +20,6 @@ function autenticar(req, res) {
 
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
-
-                        // aquarioModel.buscarAquariosPorEmpresa(resultadoAutenticar[0].empresaId)
-                        //     .then((resultadoAquarios) => {
-                        //         if (resultadoAquarios.length > 0) {
                                     res.json({
                                         id: resultadoAutenticar[0].id,
                                         nome: resultadoAutenticar[0].nome,
@@ -30,10 +27,6 @@ function autenticar(req, res) {
                                         email: resultadoAutenticar[0].email,
                                         senha: resultadoAutenticar[0].senha,
                                     });
-                        //         } else {
-                        //             res.status(204).json({ aquarios: [] });
-                        //         }
-                        //     })
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
@@ -49,6 +42,50 @@ function autenticar(req, res) {
             );
     }
 
+}
+
+function autenticarGithub(req, res) {
+    var userName = req.user.username;
+    
+
+    if (userName == undefined) {
+        res.status(400).send("Sua senha está indefinida!");
+    } else {
+
+        usuarioModel.autenticarGithub(userName)
+            .then(
+                function (resultadoAutenticar) {
+
+                    if (resultadoAutenticar.length == 1) {
+                        console.log(resultadoAutenticar);
+
+                        res.redirect('/quiz.html');
+                    } else if (resultadoAutenticar.length == 0) {
+                        usuarioModel.cadastrarGithub(userName)
+
+                        .then(function (resultadoCadastrar){
+                            usuarioModel.autenticarGithub(userName)
+                            .then(function (resultadoAutenticarCadastro){
+                                if (resultadoAutenticarCadastro.length == 1) {   
+                                    res.redirect('/quiz.html');
+                                } else if (resultadoAutenticarCadastro.length == 0){
+                                     res.status(400)
+                                }
+                            })
+                        })
+
+                    } else {
+                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                    }
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
 }
 
 function cadastrar(req, res) {
@@ -90,5 +127,6 @@ function cadastrar(req, res) {
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    autenticarGithub
 }

@@ -51,7 +51,6 @@
 <script>
 
     function tratativa() {
-        // aguardar();
 
         var emailVar = emailFormulario.value;
         var senhaVar = senhaFormulario.value;
@@ -62,9 +61,6 @@
             finalizarAguardar();
             return false;
         }
-        // else {
-        //     setInterval(sumirMensagem(), 5000)
-        // }
 
         console.log("FORM LOGIN: ", emailVar);
         console.log("FORM SENHA: ", senhaVar);
@@ -104,7 +100,7 @@
 
                 resposta.text().then(texto => {
                     console.error(texto);
-                    // finalizarAguardar(texto);
+                    
                 });
             }
 
