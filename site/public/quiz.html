@@ -18,7 +18,9 @@
         <section class="home">
             <div class="home-content">
                 <h1>Interestellar Quiz</h1>
-                <p>O quiz sobre Interstellar desafia os participantes a testar seus conhecimentos sobre o épico de ficção científica dirigido por Christopher Nolan. Explore perguntas sobre a trama, personagens e curiosidades, e veja se você é um verdadeiro explorador espacial! 🚀🌌</p>
+                <p>O quiz sobre Interstellar desafia os participantes a testar seus conhecimentos sobre o épico de
+                    ficção científica dirigido por Christopher Nolan. Explore perguntas sobre a trama, personagens e
+                    curiosidades, e veja se você é um verdadeiro explorador espacial! 🚀🌌</p>
                 <button class="start-quiz">START QUIZ</button>
             </div>
         </section>
@@ -68,59 +70,50 @@
 
     <!-- Caixa de Resultados -->
     <div class="result_box">
-        <div class="complete_text">Você concluiu o Quiz!</div>
+        <div class="complete_text">
+            Você concluiu o Quiz!
+        </div>
         <div class="percentage-container">
-            <div class="circular-progress">
-                <span class="progress-value">0%</span>
+
+            <div class="tables">
+                <table class="tabela1">
+                    <tr>
+                        <th>Company</th>
+                        <th>Contact</th>
+                        <th>Country</th>
+                    </tr>
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Maria Anders</td>
+                        <td>Germany</td>
+                    </tr>
+                    <tr>
+                        <td>Centro comercial Moctezuma</td>
+                        <td>Francisco Chang</td>
+                        <td>Mexico</td>
+                    </tr>
+                    <tr>
+                        <td>Ernst Handel</td>
+                        <td>Roland Mendel</td>
+                        <td>Austria</td>
+                    </tr>
+                </table>
+
             </div>
-            <span class="score-text">Sua pontuação foi 0 de 10</span>
-        </div>
-            <div class="buttons">
-                <button class="restart">Reiniciar</button>
-                <button onclick="statsQuiz()" class="statusBtn">Status</button>
-                <button onclick="fechar()" class="quit">Sair</button>
+            <div class="porcentagem">
+                <div class="circular-progress">
+                    <span class="progress-value">0%</span>
+                </div>
+                <span class="score-text">Sua pontuação foi 0 de 10</span>
             </div>
         </div>
+        <div class="buttons">
+            <button class="restart">Reiniciar</button>
+            <!-- <button onclick="statsQuiz()" class="statusBtn">Status</button> -->
+            <button onclick="fechar()" class="quit">Sair</button>
+        </div>
+
     </div>
-
-    <div class="dashboard">
-        <h1>Dashboard</h1>
-
-        <div class="div_conteudo">
-
-			<div class="graficos">
-				
-				<div class="div_graficos_main">
-					<canvas id="mainGraficoUmidadeMedia"></canvas>
-					<canvas id="mainGraficoUmidadeMediaMes"></canvas>
-				</div>
-				<div class="div_graficos_main">
-					<canvas id="mainGraficoTemperaturaMedia"></canvas>
-					<canvas id="mainGraficoTemperaturaMediaMes"></canvas>
-				</div>
-			</div>
-
-			<section class="squares_circles">
-				<div class="percentage-container">
-					<div class="circular-progress">
-						<span class="progress-value">0%</span>
-					</div>
-					<span class="score-text">Sua pontuação foi 0 de 10</span>
-				</div>
-		
-				<div class="percentage-container">
-					<div class="circular-progress">
-						<span class="progress-value">0%</span>
-					</div>
-					<span class="score-text">Sua pontuação foi 0 de 10</span>
-				</div>
-			</section>
-
-		</div>
-
-        
-
-
     </div>
 
     <!-- Dentro deste arquivo JavaScript, inseri apenas Perguntas e Opções -->
@@ -133,9 +126,12 @@
 
 </html>
 
+<script src="./js/cookie.js"></script>
+
 <script>
 
-	function fechar(){
-		window.location = 'quiz.html'
-	}
+    function fechar() {
+        window.location = 'quiz.html'
+    }
+
 </script>
