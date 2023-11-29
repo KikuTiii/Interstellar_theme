@@ -507,8 +507,8 @@ footer button.show{
 
 .percentage-container .circular-progress{
     position: relative;
-    width: 100px;
-    height: 100px;
+    width: 170px;
+    height: 170px;
     background: conic-gradient(rgb(63, 185, 33) 3.6deg, rgba(48, 45, 45, 0.1) 0deg);
     border-radius: 50%;
     display: flex;
@@ -520,8 +520,8 @@ footer button.show{
 .percentage-container .circular-progress::before{
     content: '';
     position: absolute;
-    width: 90px;
-    height: 90px;
+    width: 135px;
+    height: 135px;
     background: #09001d;
     border-radius: 50%;
 }
@@ -585,7 +585,7 @@ footer button.show{
 
 
 td, th {
-    border: 1px solid #dddddd;
+    border: 1px solid #000000;
     text-align: left;
     padding: 8px;
   }
@@ -596,10 +596,13 @@ td, th {
 
 .tables{
     height: 300px;
+    /* background-color: yellowgreen; */
+    display: flex;
+    justify-content: center;
 }
 
 .tabela1{
-    width: 50%;
+    width: 90%;
     height: 100%;
 }
 
@@ -610,7 +613,9 @@ td, th {
     align-items: center;
     border-radius: 15px;
     border: 2px solid rgb(27, 26, 26);
-    
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.1);
     width: 60%;
     height: 300px;
+    margin-right: 20px;
+    /* background-color: wheat; */
 }
