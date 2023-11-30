@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="./css/quiz.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-
 </head>
 
 <body>
@@ -83,23 +82,24 @@
                         <th>Erros</th>
                     </tr>
                     <tr>
-                        <td>Alfreds Futterkiste</td>
-                        <td>Maria Anders</td>
-                        <td>Germany</td>
+                        <td class="tentativa1"></td>
+                        <td class="tentativa2"></td>
+                        <td class="tentativa3"></td>
                     </tr>
                     <tr>
-                        <td>Centro comercial Moctezuma</td>
-                        <td>Francisco Chang</td>
-                        <td>Mexico</td>
+                        <td class="acertos1">Centro comercial Moctezuma</td>
+                        <td class="acertos2">Francisco Chang</td>
+                        <td class="acertos3">Mexico</td>
                     </tr>
                     <tr>
-                        <td>Ernst Handel</td>
-                        <td>Roland Mendel</td>
-                        <td>Austria</td>
+                        <td class="erros1">Ernst Handel</td>
+                        <td class="erros2">Roland Mendel</td>
+                        <td class="erros3">Austria</td>
                     </tr>
                 </table>
 
             </div>
+
             <div class="porcentagem">
                 <div class="circular-progress">
                     <span class="progress-value">0%</span>
@@ -107,13 +107,26 @@
                 <span class="score-text">Sua pontuação foi 0 de 10</span>
             </div>
         </div>
+
         <div class="buttons">
             <button class="restart">Reiniciar</button>
-            <!-- <button onclick="statsQuiz()" class="statusBtn">Status</button> -->
+            <button onclick="feedback()"  class="statusBtn">Feedback</button>
             <button onclick="fechar()" class="quit">Sair</button>
         </div>
 
-    </div>
+        <div class="feedback">
+            <h1>Conte-nos como foi sua experiencia com o nosso quiz!</h1>
+    
+            <form action="/processar-feedback" method="post">
+                <label for="feedback">Escreva seu feedback:</label>
+                <textarea id="feedbackTXT" name="feedback" rows="4" cols="50"></textarea>
+        
+                <br>
+        
+                <input type="submit" value="Enviar feedback">
+            </form>
+        
+        </div>
     </div>
 
     <!-- Dentro deste arquivo JavaScript, inseri apenas Perguntas e Opções -->
@@ -125,13 +138,19 @@
 </body>
 
 </html>
-
-<script src="./js/cookie.js"></script>
-
 <script>
 
     function fechar() {
         window.location = 'quiz.html'
     }
 
-</script>
+    function feedback(){
+
+        document.querySelector(".percentage-container").style.display = 'none'
+
+        document.querySelector(".feedback").style.display = 'flex'
+
+        document.querySelector(".statusBtn").style.display = 'none'
+    }
+
+</script>z

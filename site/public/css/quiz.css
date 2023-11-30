@@ -619,3 +619,57 @@ td, th {
     margin-right: 20px;
     /* background-color: wheat; */
 }
+
+.feedback{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 485px;
+    /* background-color: bisque; */
+    padding: 20px;
+    border-radius: 20px;
+    display: none;
+}
+
+.feedback h1{
+    font-size: 20px;
+}
+
+.conteudo{
+    width: 500px;
+    background-color: cadetblue;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea{
+    border-radius: 5px;
+}
+
+.feedback{
+    /* display: flex; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 750px;
+    /* background-color: bisque;  */
+    padding: 20px;
+    border-radius: 20px;
+    display: none;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea{
+    border-radius: 5px;
+}
