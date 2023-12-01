@@ -14,11 +14,9 @@ const app = express();
 
 const indexRouter = require("./src/routes/index");
 const usuarioRouter = require("./src/routes/usuarios");
-const avisosRouter = require("./src/routes/avisos");
-const medidasRouter = require("./src/routes/medidas");
-const aquariosRouter = require("./src/routes/aquarios");
-const empresasRouter = require("./src/routes/empresas");
 const authRouter = require("./src/routes/auth");
+const quizRouter = require("./src/routes/quiz");
+const feedbackRouter = require("./src/routes/feedback");
 
 // Configurando o middleware express.static
 
@@ -49,14 +47,13 @@ passport.serializeUser(function(user, cb) {
 });
 
 passport.deserializeUser(function(id, cb) {
-
     cb(null, id);
 });
 passport.use(
     new Githubstrategy(
         {
-            clientID: process.env.GITHUB_ID,
-            clientSecret: process.env.GITHUB_SECRET,
+            clientID: '182a54f6b52572650597',
+            clientSecret: '8571f6f590e12a564c511b5ffd58d0aaa126592b',
             callbackURL: 'http://localhost:3333/auth/github/callback',
         },
         function(accessToken, refreshToken, profile, cb) {
@@ -67,11 +64,9 @@ passport.use(
 
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
-app.use("/avisos", avisosRouter);
-app.use("/medidas", medidasRouter);
-app.use("/aquarios", aquariosRouter);
-app.use("/empresas", empresasRouter);
 app.use("/auth", authRouter);
+app.use("/quiz", quizRouter);
+app.use("/feedback", feedbackRouter);
 
 
 

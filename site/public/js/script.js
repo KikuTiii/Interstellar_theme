@@ -101,14 +101,35 @@ next_btn.onclick = () => {
         totalTime += 10 - timeValue; // Adiciona o tempo gasto nesta pergunta ao tempo total
         questionCount++; // Incrementa o número de perguntas respondidas
 
-        // Calcula o tempo médio por pergunta
-        const averageTime = totalTime / questionCount;
-        // tempo_medio.innerHTML = `Tempo Médio por Pergunta:  + ${averageTime.toFixed(2)} +  segundos`;
-
-    } else {
+        } else {
         clearInterval(counter); // Limpa o contador
         clearInterval(counterLine); // Limpa o contador de linha
         showResult(); // Chama a função showResult
+            fetch("/quiz/atualizar", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              // crie um atributo que recebe o valor recuperado aqui
+              // Agora vá para o arquivo routes/usuario.js
+              idServer: sessionStorage.ID_USUARIO,
+              acertosServer: userScore,
+              errosServer: userErrors.length
+            }),
+          })
+            .then(function (resposta) {
+              console.log("resposta: ", resposta);
+      
+              if (resposta.ok) {
+
+              } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+              }
+            })
+            .catch(function (resposta) {
+              console.log(`#ERRO: ${resposta}`);
+            });
     }
 }
 
