@@ -82,19 +82,19 @@
                         <th>Erros</th>
                     </tr>
                     <tr>
-                        <td class="tentativa1"></td>
-                        <td class="tentativa2"></td>
-                        <td class="tentativa3"></td>
+                        <td id="tentativa1">1</td>
+                        <td id="acertos1"></td>
+                        <td id="erros1"></td>
                     </tr>
                     <tr>
-                        <td class="acertos1">Centro comercial Moctezuma</td>
-                        <td class="acertos2">Francisco Chang</td>
-                        <td class="acertos3">Mexico</td>
+                        <td id="tentativa2">2</td>
+                        <td id="acertos2"></td>
+                        <td id="erros2"></td>
                     </tr>
                     <tr>
-                        <td class="erros1">Ernst Handel</td>
-                        <td class="erros2">Roland Mendel</td>
-                        <td class="erros3">Austria</td>
+                        <td id="tentativa3">3</td>
+                        <td id="acertos3"></td>
+                        <td id="erros3"></td>
                     </tr>
                 </table>
 
@@ -117,14 +117,14 @@
         <div class="feedback">
             <h1>Conte-nos como foi sua experiencia com o nosso quiz!</h1>
     
-            <form action="/processar-feedback" method="post">
-                <label for="feedback">Escreva seu feedback:</label>
+            <div action="/processar-feedback" method="post">
+                <label for="feedbackTXT">Escreva seu feedback:</label>
                 <textarea id="feedbackTXT" name="feedback" rows="4" cols="50"></textarea>
         
                 <br>
         
-                <input type="submit" value="Enviar feedback">
-            </form>
+                    <button onclick="feedbackBox()">Enviar feedback</button>
+            </div>
         
         </div>
     </div>
@@ -151,6 +151,33 @@
         document.querySelector(".feedback").style.display = 'flex'
 
         document.querySelector(".statusBtn").style.display = 'none'
+
     }
 
-</script>z
+    function feedbackBox(){
+
+        fetch("feedback/atualizarFeedback", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              idFeedback: sessionStorage.ID_USUARIO,
+              textoFeedback: document.getElementById("feedbackTXT").value
+            }),
+          })
+            .then(function (resposta) {
+              console.log("resposta: ", resposta);
+      
+              if (resposta.ok) {
+              } else {
+                throw "Houve um erro ao tentar realizar o cadastro!";
+              }
+            })
+            .catch(function (resposta) {
+              console.log(`#ERRO: ${resposta}`);
+            });
+            alert('seu feedback foi enviando')
+    }
+
+</script>

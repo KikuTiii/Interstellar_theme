@@ -17,9 +17,9 @@ const usuarioRouter = require("./src/routes/usuarios");
 const authRouter = require("./src/routes/auth");
 const quizRouter = require("./src/routes/quiz");
 const feedbackRouter = require("./src/routes/feedback");
+const rankRouter = require("./src/routes/rank");
 
 // Configurando o middleware express.static
-
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -52,9 +52,9 @@ passport.deserializeUser(function(id, cb) {
 passport.use(
     new Githubstrategy(
         {
-            clientID: '182a54f6b52572650597',
-            clientSecret: '8571f6f590e12a564c511b5ffd58d0aaa126592b',
-            callbackURL: 'http://localhost:3333/auth/github/callback',
+            clientID: GITHUB_ID,
+            clientSecret: GITHUB_SECRET,
+            callbackURL: GITHUB_CALLBACK,
         },
         function(accessToken, refreshToken, profile, cb) {
             cb(null, profile);
@@ -67,8 +67,7 @@ app.use("/usuarios", usuarioRouter);
 app.use("/auth", authRouter);
 app.use("/quiz", quizRouter);
 app.use("/feedback", feedbackRouter);
-
-
+app.use("/rank", rankRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n
